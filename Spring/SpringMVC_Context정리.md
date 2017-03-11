@@ -85,3 +85,5 @@ parent(=root)/child 구조로 bean을 스캔하는 이유는 bean의 의존관�
 :	spring 프레임워크에 관련된 DAO나 Service의 __context:component-scan__이 위치
 Database, Transaction과 같은 bean 등록 속성 설정을 함
 
+
+[참조](http://52.79.131.200/index.php/2016/03/24/root-context-and-servlet-context/)
