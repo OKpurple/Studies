@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg949\cocoartf1504\cocoasubrtf820
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset129 AppleSDGothicNeo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red0\green0\blue0;\red43\green131\blue159;
+\red163\green21\blue21;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c0\c0\c0;\csgenericrgb\c16900\c51200\c62500;
+\csgenericrgb\c63900\c8200\c8200;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab543
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 import\cf3  UIKit\
+\cf2 import\cf3  AVFoundation.AVFAudio\
+\
+\
+\cf2 class\cf3  ViewController: \cf4 UIViewController\cf3  \{\
+    \
+    \cf2 var\cf3  p =  \cf4 AVPlayer\cf3 ()\
+    \
+    \cf2 @IBOutlet\cf3  \cf2 var\cf3  text: \cf4 UITextField\cf3 !\
+\
+    \cf2 @IBAction\cf3  \cf2 func\cf3  playBtn(\cf2 _\cf3  sender: \cf4 UIButton\cf3 ) \{\
+        \cf2 do\cf3 \
+        \{\
+            \cf2 var\cf3  str = \cf4 text\cf3 .\cf4 text\cf3 !.\cf4 addingPercentEncoding\cf3 (withAllowedCharacters: .\cf4 urlQueryAllowed\cf3 )\
+            \cf2 var\cf3  str1 = \cf5 "http://127.0.0.1:33200/tts/"\cf3  \cf4 +\cf3  str!\
+            \cf4 print\cf3  (str1.\cf4 debugDescription\cf3 )\
+            \cf2 let\cf3  url = \cf4 NSURL\cf3 (string: str1)\
+            \cf4 p\cf3  = \cf4 AVPlayer\cf3 (url: url \cf2 as\cf3 ! \cf4 URL\cf3 )\
+        \}\
+      \cf4 p\cf3 .\cf4 play\cf3 ()\
+    \}\
+\}\
+\
+\
+////////////////////\
+\
+\
+\
+\
+var express = require('express');\
+var router = express.Router();\
+var client_id = 'hlRLHE6xd8d_ImTr9Ihu';\
+var client_secret = 'GnTqv1n6ik';\
+\
+\
+router.get('/:text', function (req, res) \{\
+   var api_url = 'https://openapi.naver.com/v1/voice/tts.bin';\
+   var request = require('request');\
+\
+   var options = \{\
+       url: api_url,\
+       form: \{'speaker':'mijin', 'speed':'0', 'text':req.params.text\},\
+       headers: \{'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret\}\
+    \};\
+\
+    var _req = request.post(options).on('response', function(response) \{\
+       console.log(response.statusCode) // 200\
+       console.log(response.headers['content-type'])\
+    \});\
+\
+  _req.pipe(res); // 
+\f1 \'ba\'ea\'b6\'f3\'bf\'ec\'c0\'fa\'b7\'ce
+\f0  
+\f1 \'c3\'e2\'b7\'c2
+\f0 \
+ \});\
+\
+\
+\
+module.exports = router;\
+}
